@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.box {
+  width: 120px;
+  text-align: center;
+  border: 1px solid green;
+  background-color: SlateBlue;
+  padding: 10px;
+}
+
+.box-yellow {
+  border:none;
+  border-radius:10px;
+  padding:15px;
+  min-height:30px;
+  min-width: 90px;
+  text-align: center;
+  background-color: tomato;
+  color: white;
+}
+
+.box-green {
+  border:none;
+  border-radius:10px;
+  padding:15px;
+  min-height:30px;
+  min-width: 90px;
+  text-align: center;
+  background-color: MediumSeaGreen;
+  color: white;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Employees</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Full Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+    </tr>
+    <tr th:each="myemp : ${allemps}">
+        <td th:text="${myemp.eid}"></td>
+        <td th:text="${myemp.UName}"></td>
+        <td th:text="${myemp.Password}"></td>
+        <td th:text="${myemp.Name}"></td>
+        <td th:text="${myemp.Age}"></td>
+        <td th:text="${myemp.Gender}"></td>
+        <td >
+            <div >
+                <!--                        <a th:href="@{'/emp/deleteemployee/'+${myemp.UName}+'/'+${myemp.Password}}" >-->
+                <a th:href="@{'/emp/deleteemployee/'+${myemp.eid}}">
+                    <img src="@{/delete.png}" alt="Delete">
+                </a>
+                <!--                        <button class="box-yellow" type="button" th:attr="onclick=|empdelete('${myemp.UName}','${myemp.Password}')|">Delete</button>-->
+            </div>
+        </td>
+        <td >
+            <div >
+                <!--                        <a th:href="@{'/emp/updateemployee/'+${myemp.UName}}" > <i style='font-size:36px' class='fas'>&#xf044;</i> </a>-->
+                <a th:href="@{'/emp/updateemployee/'+${myemp.eid}}" >
+                    <img src="@{/update.png}" alt="Update">
+                </a>
+                <!--                        <button class="box-green" type="button" th:attr="onclick=|empupdate('${myemp.UName}')|">Edit</button>-->
+            </div>
+        </td>
+    </tr>
+</table>
+
+<br>
+<div class="box">
+    <a th:href="@{'/emp'}" style="color: white">Go To Login</a>
+</div>
+
+<!--        <script type="text/javascript">-->
+<!--                function empdelete(uname,pwd){-->
+<!--                    window.location = "/emp/deleteemployee/"+uname+"/"+pwd;-->
+<!--                }-->
+
+<!--                function empupdate(uname){-->
+<!--                    window.location = "/emp/updateemployee/"+uname;-->
+<!--                }-->
+<!--        </script>-->
+
+</body>
+</html>

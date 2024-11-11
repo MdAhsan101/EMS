@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update</title>
+</head>
+<body>
+<form action="#" method="post" th:action="@{'/emp/saveemployeedata/'+${emp.get().eid}}" >
+  <p>User Name: <input type="text" name="UName" th:value="${emp.get().UName}"/></p>
+  <p>Password: <input type="text"  name="Password" th:value="${emp.get().Password}"/></p>
+  <p>Full Name: <input type="text"  name="Name" th:value="${emp.get().Name}"/></p>
+  <p>Age: <input type="text"  name="Age" th:value="${emp.get().Age}"/></p>
+  <p>Gender: <input type="text"  name="Gender" th:value="${emp.get().Gender}"/></p>
+  <p><input type="submit" value="Update" /></p>
+</form>
+</body>
+</html>

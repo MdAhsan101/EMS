@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+.box {
+  border:none;
+  border-radius:10px;
+  height:40px;
+  width: 70px;
+  text-align: center;
+  background-color: SlateBlue;
+  color: white;
+}
+
+.box1 {
+  width: 80px;
+  text-align: center;
+  border: 1px solid green;
+  background-color: MediumSeaGreen;
+  padding: 10px;
+}
+
+.box2 {
+  width: 80px;
+  text-align: center;
+  border: 1px solid green;
+  background-color: grey;
+  padding: 10px;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+</head>
+<body>
+<h2>Login Form</h2>
+<form action="#" method="post" th:action="@{/emp/showemployee}" >
+  <p>User Name: <input type="text" name="UName"/></p>
+  <p>Password: <input type="text"  name="Password" /></p>
+  <div>
+    <input type="submit" value="Submit" class="box1" style="color:white"/>
+    <input type="reset" value="Reset" class="box2" style="color:white"/>
+  </div>
+</form>
+<br>
+
+<div >
+  <!--            <a th:href="@{/emp/gotosignup}" style="color:white">Sign Up</a>-->
+  <button class="box" type="button" th:attr="onclick=|tosignup()|">Sign Up</button>
+</div>
+<script type="text/javascript">
+            function tosignup(){
+                window.location = "/emp/gotosignup";
+            }
+        </script>
+</body>
+</html>

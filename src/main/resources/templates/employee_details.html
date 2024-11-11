@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.box {
+  width: 120px;
+  text-align: center;
+  border: 1px solid green;
+  background-color: SlateBlue;
+  padding: 10px;
+}
+</style>
+
+<head>
+  <title th:text="${myemp.get().Name + ' Details'}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table>
+  <tr>
+    <th>User Name</th>
+    <th>Password</th>
+    <th>Full Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+  </tr>
+  <tr>
+    <td th:text="${myemp.get().UName}"></td>
+    <td th:text="${myemp.get().Password}"></td>
+    <td th:text="${myemp.get().Name}"></td>
+    <td th:text="${myemp.get().Age}"></td>
+    <td th:text="${myemp.get().Gender}"></td>
+  </tr>
+</table>
+<div class="box">
+  <a th:href="@{'/emp/getemployeeslist'}" style="color: white">Employees List</a>
+</div>
+</body>
+</html>
